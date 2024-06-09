@@ -8,6 +8,7 @@ nic=`ifconfig | awk 'NR==1{print $1}'`
 read -p "Masukan static IP Server: " staticip
 read -p "Masukan IP of gateway: " gatewayip
 read -p "Masukan IP of dns server (seperated by a coma if more than one): " nameserversip
+read -p "Masukan Hostname: " hostname
 echo
 cat > /etc/netplan/00-installer-config.yaml <<EOF
 
@@ -25,6 +26,7 @@ network:
           
 EOF
 sudo netplan apply
+hostnamectl set-hostname $hostname
 echo "==========================="
 echo
 
