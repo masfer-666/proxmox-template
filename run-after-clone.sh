@@ -13,4 +13,5 @@ sleep 1
 cd "$(pwd)"; sh netplan.sh
 # truncate the machine-id file
 sudo truncate -s 0 /etc/machine-id
-
+# delete source script
+rm -rf /opt/proxmox-template
